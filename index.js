@@ -14,7 +14,7 @@ const Discord = require("discord.js");
 const { Token } = require('./config.json')
 const { Blacklist } = require('./Blacklist.json')
 const urls = require('url');
-
+// const datas = new Array()
 const regpart2 = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=\-]{2,256}\.[a-z,\-]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/ig
 
 const client = new Discord.Client({
@@ -32,6 +32,7 @@ client.on('ready', async () => {
 
 client.on('message', message => {
     if (client.user.id === message.author.id) return;
+    //console.log(message)
     if (message.content.match(regpart2) !== null) { clus(message.content.match(regpart2)) }
 
     async function report() {
@@ -50,22 +51,29 @@ client.on('message', message => {
                 datas = datas[0].split('.')
                 if (Blacklist.includes(`${datas[datas.length - 2]}.${datas[datas.length - 1]}`)) {
                     try {
-                        message.delete()
-                        message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`);    
-                    } catch (error) {}
+                        if (index === 0) {
+                            message.delete()
+                            message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`);
+                            datas = []
+                        }
+                    } catch (error) { }
                 }
             } else {
                 if (Blacklist.includes(`${datas[datas.length - 2]}.${datas[datas.length - 1]}`)) {
                     try {
-                        message.delete()
-                        message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`);    
-                    } catch (error) {}
+                        if (index === 0) {
+                            message.delete()
+                            message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`);
+                            datas = []
+                        }
+                    } catch (error) { }
                 }
             }
 
         }
     }
-    report()
+
+    report();
 })
 
 client.login(Token);

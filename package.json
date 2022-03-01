@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  },
+  "name": "discord.js-anti-scam-or-phishing",
+  "description": "![](./d267c67e-2a46-4ad1-b021-0eef80b0bc3b.jpg)",
+  "version": "0.0.4",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node --no-warnings index.js",
+    "test": "node --trace-deprecation index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SycerNetwork-Inc/Discord.js-Anti-Scam-or-Phishing.git"
+  },
+  "keywords": [
+    "AntiScam",
+    "ClearScam",
+    "BlockScam",
+    "BlockPhishing",
+    "ClearPhishing",
+    "AntiPhishing"
+  ],
+  "author": "TinnerKun",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SycerNetwork-Inc/Discord.js-Anti-Scam-or-Phishing/issues"
+  },
+  "homepage": "https://github.com/SycerNetwork-Inc/Discord.js-Anti-Scam-or-Phishing#readme"
+}
