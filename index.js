@@ -1,3 +1,4 @@
+process.on('uncaughtException', function (exception) {});
 console.clear();
 console.log(`
 ███████╗██╗   ██╗ ██████╗███████╗██████╗ ███╗   ██╗███████╗████████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗
