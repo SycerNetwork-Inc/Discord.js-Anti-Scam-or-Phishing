@@ -26,7 +26,7 @@ console.log(text);
     ]
   });
 
-  await client.login(Token).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'));
+  await client.login(Token).then(data => console.log('Bot ได้ทำการ Login เป็นที่เรียบร้อย')).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'))
 
   await client.on('ready', async () => {
     console.log(`Bot ${client.user.username} Run StartUp`)

@@ -10,7 +10,6 @@ console.log(`
 `)
 
 const Discord = require("discord.js");
-const { Token } = require('./config.json')
 const { Blacklist } = require('./Blacklist.json')
 const urls = require('url');
 const regpart2 = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=\-]{2,256}\.[a-z,\-]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/ig
@@ -64,4 +63,4 @@ client.on('message', message => {
     }
     report();
 })
-client.login(Token).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'))
+client.login('').then(data => console.log('Bot ได้ทำการ Login เป็นที่เรียบร้อย')).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'))
