@@ -1,3 +1,5 @@
+process.on('uncaughtException', function (exception) {});
+
 import { Client } from "discord.js";
 import * as urls from "url";
 import { Token } from "./config.json";
@@ -14,7 +16,8 @@ let text: string = `
 ╚════██║  ╚██╔╝  ██║     ██╔══╝  ██╔══██╗██║╚██╗██║██╔══╝     ██║   ██║███╗██║██║   ██║██╔══██╗██╔═██╗ \n
 ███████║   ██║   ╚██████╗███████╗██║  ██║██║ ╚████║███████╗   ██║   ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗\n
 ╚══════╝   ╚═╝    ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝    ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\n
-                   Discord Anti Scam or Phishing By TinnerX TypeScript                                                                                `;
+                   Discord Anti Scam or Phishing By TinnerX TypeScript
+`;
 
 console.log(text);
 

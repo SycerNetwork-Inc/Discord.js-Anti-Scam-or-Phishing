@@ -13,6 +13,7 @@ console.log(`
 const Discord = require("discord.js");
 const { Blacklist } = require('./Blacklist.json')
 const urls = require('url');
+const { Token } = require('./config.json')
 const regpart2 = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=\-]{2,256}\.[a-z,\-]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/ig
 
 const client = new Discord.Client({
@@ -21,8 +22,8 @@ const client = new Discord.Client({
         "GUILD_MESSAGES"
     ]
 });
-client.on('ready', async () => {
-    console.log(`Bot ${client.user.username} Run StartUp`)
+client.on('ready', async (message) => {
+    console.log(`Bot ตัวที่รันชื่อ ${client.user.username}`)
     console.log('================================')
     console.log()
 })
@@ -64,4 +65,4 @@ client.on('message', message => {
     }
     report();
 })
-client.login('').then(data => console.log('Bot ได้ทำการ Login เป็นที่เรียบร้อย')).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'))
+client.login(Token).then(data => console.log('Bot ได้ทำการ Login เป็นที่เรียบร้อย')).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'))
