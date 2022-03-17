@@ -1,4 +1,4 @@
-process.on('uncaughtException', function (exception) {});
+process.on('uncaughtException', function (exception) { });
 console.clear();
 console.log(`
 ███████╗██╗   ██╗ ██████╗███████╗██████╗ ███╗   ██╗███████╗████████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗
@@ -38,31 +38,27 @@ client.on('message', message => {
             clus(data)
         }
     }
+
     async function clus(urlin) {
         for (let index = 0; index < urlin?.length; index++) {
             let datas = urls.parse(urlin[index])["hostname"]?.split('.')
+
             if (datas === undefined) {
                 datas = urls.parse(urlin[index])["href"].split('/')
                 datas = datas[0].split('.')
-                if (Blacklist.includes(`${datas[datas.length - 2]}.${datas[datas.length - 1]}`)) {
-                    if (index === 0) {
-                        message.delete()
-                            .then(data => { message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`), datas = [] })
-                            .catch(data => { message.channel.send(`@here ข้อความด้านบน มีความอันตราย คำที่ตรวจเจอ ( ${datas[datas.length - 2]}.${datas[datas.length - 1]} )`) })
-                    }
-                }
-            } else {
-                if (Blacklist.includes(`${datas[datas.length - 2]}.${datas[datas.length - 1]}`)) {
-                    if (index === 0) {
-                        message.delete()
-                            .then(data => { message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`), datas = [] })
-                            .catch(data => { message.channel.send(`@here ข้อความด้านบน มีความอันตราย คำที่ตรวจเจอ ( ${datas[datas.length - 2]}.${datas[datas.length - 1]} )`) })
-                    }
+            }
+
+            if (Blacklist.includes(`${datas[datas.length - 2]}.${datas[datas.length - 1]}`)) {
+                if (index === 0) {
+                    message.delete()
+                        .then(data => { message.channel.send(`<@${message.author.id}> โดเมน ${datas[datas.length - 2]}.${datas[datas.length - 1]} ถูก Blacklist`), datas = [] })
+                        .catch(data => { message.channel.send(`@here ข้อความด้านบน มีความอันตราย คำที่ตรวจเจอ ( ${datas[datas.length - 2]}.${datas[datas.length - 1]} )`) })
                 }
             }
 
         }
     }
+
     report();
 })
 client.login(Token).then(data => console.log('Bot ได้ทำการ Login เป็นที่เรียบร้อย')).catch(data => console.log('ไม่สามารถเข้าใช้งานบอทได้ อาจ Token ผิด หรือ หมดอายุ'))
